@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Geocoder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/main.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Super Geocoder</h1>
+        <h3>
+            <b>Please upload your CSV file. The values containing addresses should be in a column named
+                <i>address</i> or
+                <i>Address</i>
+            </b>
+        </h3>
+        <div class="message">
+            {{msg | safe}}
+        </div>
+        <form action="{{url_for('success')}}" method="POST" enctype="multipart/form-data">
+            <input type="file" title="Choose File" name="file_name">
+            <button type="submit">Submit</button>
+        </form>
+        {%block content%}
+
+        {%endblock%}
+        {% include btn ignore missing %}
+    </div>
+</body>
+
+</html>
